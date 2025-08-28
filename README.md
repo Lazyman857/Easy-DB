@@ -1,4 +1,6 @@
-# MYDB
+# Easy-DB
+
+参考：https://github.com/senshinya/MYDB
 
 MYDB 是一个 Java 实现的简单的数据库,实现了以下功能：
 
@@ -6,8 +8,7 @@ MYDB 是一个 Java 实现的简单的数据库,实现了以下功能：
 - 两段锁协议（2PL）实现可串行化调度
 - MVCC 实现了两种事务隔离级别（读提交和可重复读）
 - 死锁处理
-- 简单的表和字段管理
-- 简陋的 SQL 解析
+- 表和字段管理 SQL 解析
 - 基于 socket 的 server 和 client
 
 ## 运行方式
@@ -23,30 +24,29 @@ mvn compile
 接着执行以下命令以 /tmp/mydb 作为路径创建数据库：
 
 ```shell
-mvn exec:java -Dexec.mainClass="com.wencel.mydb.backend.Launcher" -Dexec.args="-create /tmp/mydb"
+mvn exec:java -Dexec.mainClass="com.wencel.easydb.backend.Launcher" -Dexec.args="-create /tmp/mydb"
 
 Windows：
- mvn exec:java "-Dexec.mainClass=com.wencel.mydb.backend.Launcher" "-Dexec.args=-create D:\Code\Backend\MYDB\tmp\mydb"
+ mvn exec:java "-Dexec.mainClass=com.wencel.easydb.backend.Launcher" "-Dexec.args=-create D:\Code\Backend\MYDB\tmp\mydb"
 ```
 
 随后通过以下命令以默认参数启动数据库服务：
 
 ```shell
-mvn exec:java -Dexec.mainClass="com.wencel.mydb.backend.Launcher" -Dexec.args="-open /tmp/mydb"
+mvn exec:java -Dexec.mainClass="com.wencel.easydb.backend.Launcher" -Dexec.args="-open /tmp/mydb"
 
 Windows：
- mvn exec:java "-Dexec.mainClass=com.wencel.mydb.backend.Launcher" "-Dexec.args=-open D:\Code\Backend\MYDB\tmp\mydb"
+ mvn exec:java "-Dexec.mainClass=com.wencel.easydb.backend.Launcher" "-Dexec.args=-open D:\Code\Backend\MYDB\tmp\mydb"
 ```
 
 这时数据库服务就已经启动在本机的 9999 端口。重新启动一个终端，执行以下命令启动客户端连接数据库：
 
 ```shell
-mvn exec:java -Dexec.mainClass="com.wencel.mydb.client.Launcher"
+mvn exec:java -Dexec.mainClass="com.wencel.easydb.client.Launcher"
 
 Windows：
- mvn exec:java "-Dexec.mainClass=com.wencel.mydb.client.Launcher" 
+ mvn exec:java "-Dexec.mainClass=com.wencel.easydb.client.Launcher" 
 ```
 
 会启动一个交互式命令行，就可以在这里输入类 SQL 语法，回车会发送语句到服务，并输出执行的结果。
-
 
