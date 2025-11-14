@@ -2,7 +2,7 @@
 
 参考：https://github.com/senshinya/MYDB
 
-MYDB 是一个 Java 实现的简单的数据库,实现了以下功能：
+Easy-DB 是一个 Java 实现的简单的数据库,实现了以下功能：
 
 - 数据的可靠性和数据恢复
 - 两段锁协议（2PL）实现可串行化调度
